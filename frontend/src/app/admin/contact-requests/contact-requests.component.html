@@ -1,0 +1,35 @@
+
+
+
+
+
+
+
+ <div class="padding">
+  <div class="row">
+
+    <div class="col-md-12 table-responsive">
+      <div class="box">
+          <div class="box-body">
+        <ngx-table [configuration]="configuration" [data]="contacts" [columns]="columns">
+          <ng-template let-row let-index="index">
+            <td>{{ row.name }}</td>
+            <td>{{ row.email }}</td>
+            <td>{{ row.phone }}</td>
+            <td>{{ row.country }}</td>
+            <td>{{ row.message }}</td>
+            <!-- <td class="fit">
+              <button
+                class="btn btn-outline b-danger text-danger">
+                <i class="fa fa-trash"></i>
+              </button>
+            </td> -->
+          </ng-template>
+        </ngx-table>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    </div>

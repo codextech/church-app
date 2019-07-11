@@ -1,0 +1,19 @@
+.event-entry .meta span:first-child {
+  font-size: 20px;
+}
+
+
+.event-img {
+  height: 200px;
+  width: 100%;
+}
+
+.event-entry .text {
+  width: calc(100% - 0px);
+  padding: 10px
+}
+
+.event-entry{
+box-shadow: -1px 3px 15px 9px #22386540;
+
+}

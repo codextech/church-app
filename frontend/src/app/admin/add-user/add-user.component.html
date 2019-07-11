@@ -1,0 +1,97 @@
+<!--
+
+
+<section class="blog">
+
+</section>
+<form #blogForm="ngForm" (ngSubmit)="addBlog()" class="form-inline">
+  <div class="row">
+
+  <div class="form-group col-md-6 mb-3">
+  <label for="Title" class="sr-only">Blog Title</label>
+  <input [(ngModel)]="blogModel.blogTitle" type="text" class="form-control" id="Title" name="Title" placeholder="First Name">
+  </div>
+  <div class="form-group col-md-12 mb-3">
+  <label for="Description">Description</label>
+  <textarea [(ngModel)]="blogModel.blogDescription" type="text"
+   class="form-control" id="Description" name="Description" placeholder="Description">
+  </textarea>
+  </div>
+
+
+<dropzone class="dropzone-container" [config]="config"
+(error)="onUploadError($event)"
+(sending)="onSending($event)"
+[message]="'Click or drag Blog image here to upload'"
+></dropzone>
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</div>
+
+  </form>
+ -->
+
+
+ <div class="padding">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="box">
+          <div class="box-header">
+            <h2>Add Group</h2>
+
+          </div>
+          <div class="box-body">
+
+            <form #groupForm="ngForm" (ngSubmit)="addUser()">
+              <div class="form-row">
+
+
+
+                <div class="form-group col-md-12">
+                  <label>User Name</label>
+                  <input [(ngModel)]="userModel.name" name="name" type="text" class="form-control" id="rn"
+                    placeholder="Name" />
+                </div>
+
+
+                <div class="form-group col-md-12">
+                    <label>Password</label>
+                    <input [(ngModel)]="userModel.password" name="password" type="text" class="form-control" id="rn"
+                      placeholder="password" />
+                </div>
+
+              </div>
+
+
+              <button type="submit" class="btn primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+
+    <div class="col-md-12 table-responsive">
+        <div class="box">
+            <div class="box-body">
+          <ngx-table [configuration]="configuration" [data]="users" [columns]="columns">
+            <ng-template let-row let-index="index">
+              <td>{{ row.name }}</td>
+              <td>{{ row.password }}</td>
+              <!-- <td class="fit">
+                <button (click)="deleteGroup(row.eventGroupId)"
+                  class="btn btn-outline b-danger text-danger">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </td> -->
+            </ng-template>
+          </ngx-table>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>

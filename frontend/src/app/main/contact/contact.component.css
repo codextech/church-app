@@ -1,0 +1,19 @@
+.Page3-header{
+      height: 300px;
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+
+}
+@media only screen and (max-width: 768px) {
+  .Page3-header{
+    margin-left: -100px;
+  }
+  }
+.card {
+/* Add shadows to create the "card" effect */
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+transition: 0.3s;
+}

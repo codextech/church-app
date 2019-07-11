@@ -1,0 +1,95 @@
+<!--
+
+
+<section class="blog">
+
+</section>
+<form #blogForm="ngForm" (ngSubmit)="addBlog()" class="form-inline">
+  <div class="row">
+
+  <div class="form-group col-md-6 mb-3">
+  <label for="Title" class="sr-only">Blog Title</label>
+  <input [(ngModel)]="blogModel.blogTitle" type="text" class="form-control" id="Title" name="Title" placeholder="First Name">
+  </div>
+  <div class="form-group col-md-12 mb-3">
+  <label for="Description">Description</label>
+  <textarea [(ngModel)]="blogModel.blogDescription" type="text"
+   class="form-control" id="Description" name="Description" placeholder="Description">
+  </textarea>
+  </div>
+
+
+<dropzone class="dropzone-container" [config]="config"
+(error)="onUploadError($event)"
+(sending)="onSending($event)"
+[message]="'Click or drag Blog image here to upload'"
+></dropzone>
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</div>
+
+  </form>
+ -->
+
+
+<div class="padding">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="box">
+        <div class="box-header">
+          <h2>Add Blog</h2>
+
+        </div>
+        <div class="box-body">
+
+          <form #blogForm="ngForm" (ngSubmit)="addBlog()">
+            <div class="form-row">
+
+
+
+              <div class="form-group col-md-12">
+                <label>Blog Title</label>
+                <input [(ngModel)]="blogModel.blogTitle" name="blogTitle" type="text" class="form-control" id="rn"
+                  placeholder="Title" />
+              </div>
+
+
+              <div class="form-group col-md-12">
+                  <label>Short Description</label>
+                  <input [(ngModel)]="blogModel.blogShortDescription" name="blogShortDescription" type="text" class="form-control" id="rn"
+                    placeholder="Short Description" />
+                </div>
+
+              <div class="form-group col-md-12">
+                <label>Blog Description</label>
+                <!-- <textarea [(ngModel)]="blogModel.blogDescription" name="blogDescription" type="text"
+                  class="form-control" id="rn" placeholder="Description">
+                    </textarea> -->
+
+            <ejs-richtexteditor [insertImageSettings]="insertImageConfig"
+                     [(ngModel)]="blogModel.blogDescription" name="blogDescription"></ejs-richtexteditor>
+              </div>
+
+
+
+
+              <dropzone class="dropzone-container" [config]="config" (error)="onUploadError($event)"
+                (sending)="onSending($event)" (success)="onSuccess($event)" [message]="'Click or drag Blog image here to upload'"></dropzone>
+
+
+            </div>
+
+
+            <button type="submit" class="btn primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+</div>

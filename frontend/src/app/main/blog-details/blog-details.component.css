@@ -1,0 +1,13 @@
+
+
+.Page2-header{
+  height: 300px;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: 300px;
+  margin: auto;
+  display: block;
+  border-radius: 1rem;
+}

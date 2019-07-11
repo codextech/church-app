@@ -1,0 +1,32 @@
+
+    <section id="home" class="video-hero js-fullheight" style="height: 700px; background-image: url(../../../../../assets/images/bg_1.jpg);  background-size:cover; background-position: center center;background-attachment:fixed;" data-section="home">
+			<div class="overlay js-fullheight"></div>
+			<div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-10 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+            <p class="breadcrumbs mb-2" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span class="mr-2"><a href="blog.html">Blog</a></span> <span>Blog Single</span></p>
+            <h1 class="mb-3 mt-0 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Blog Single</h1>
+          </div>
+        </div>
+      </div>
+		</section>
+
+		<section class="ftco-section ftco-degree-bg">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 ftco-animate">
+            <h2 class="mb-3">{{event.eventTitle}}</h2>
+            <p>{{event.eventDate | date}},{{event.location}}</p>
+            <p>{{event.eventShortDescription}}</p>
+            <p>
+              <img [src]="event.eventImage | SafeUrl" alt="" class="event-cover-img img-fluid">
+            </p>
+            <div [innerHTML]="event.eventDescription | safeHtml">
+
+            </div>
+
+          </div> <!-- .col-md-8 -->
+
+        </div>
+      </div>
+    </section> <!-- .section -->

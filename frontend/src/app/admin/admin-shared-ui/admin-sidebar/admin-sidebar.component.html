@@ -1,0 +1,104 @@
+<div
+  id="aside"
+  class="app-aside fade box-shadow-x nav-expand white"
+  aria-hidden="true"
+>
+  <div class="sidenav modal-dialog dk white">
+    <!-- sidenav top -->
+    <div class="navbar dk">
+      <!-- brand -->
+      <a [routerLink]="['/']"  class="navbar-brand">
+        <svg
+          viewBox="0 0 24 24"
+          height="28"
+          width="28"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M19.51 3.08L3.08 19.51c.09.34.27.65.51.9.25.24.56.42.9.51L20.93 4.49c-.19-.69-.73-1.23-1.42-1.41zM11.88 3L3 11.88v2.83L14.71 3h-2.83zM5 3c-1.1 0-2 .9-2 2v2l4-4H5zm14 18c.55 0 1.05-.22 1.41-.59.37-.36.59-.86.59-1.41v-2l-4 4h2zm-9.71 0h2.83L21 12.12V9.29L9.29 21z"
+            fill="#fff"
+            class="fill-theme"
+          />
+        </svg>
+        <img src="../../../../assets/img/001.jpg" alt="." class="hide" />
+        <span class="hidden-folded d-inline">Church App</span>
+      </a>
+      <!-- / brand -->
+    </div>
+    <!-- Flex nav content -->
+    <div class="flex hide-scroll">
+      <div class="scroll">
+        <div class="nav-stacked nav-active-theme" data-nav>
+          <ul class="nav ">
+            <li class="nav-header">
+              <span class="text-xs hidden-folded">Main</span>
+            </li>
+            <li>
+              <a routerLink="/admin/dashboard">
+                <span class="nav-icon"><i class="fa fa-dashboard"></i></span>
+                <span class="nav-text">Dashboard</span>
+              </a>
+            </li>
+
+            <li>
+                <a routerLink="/admin/add-blog">
+                  <span class="nav-icon"><i class="fa fa-edit"></i></span>
+                  <span class="nav-text">Add Blog</span>
+                </a>
+              </li>
+
+
+              <li>
+                  <a routerLink="/admin/contact-requests">
+                    <span class="nav-icon"><i class="fa fa-list-alt"></i></span>
+                    <span class="nav-text">Contact Requests</span>
+                  </a>
+                </li>
+
+                <li>
+                    <a>
+                      <span class="nav-caret"><i class="fa fa-caret-down"></i></span>
+                      <span class="nav-icon"><i class="fa  fa-list-alt"></i></span>
+                      <span class="nav-text">Event Management</span>
+                    </a>
+                    <ul class="nav-sub">
+                        <li>
+                            <a routerLink="/admin/add-event">
+                              <span class="nav-icon"><i class="fa fa-plus"></i></span>
+                              <span class="nav-text">Add Event</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a routerLink="/admin/add-group">
+                              <span class="nav-icon"><i class="fa fa-plus"></i></span>
+                              <span class="nav-text">Add Group</span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+    </ul>
+                </li>
+
+                <li>
+                    <a routerLink="/admin/add-user">
+                      <span class="nav-icon"><i class="fa fa-plus"></i></span>
+                      <span class="nav-text">Add User</span>
+                    </a>
+                  </li>
+
+
+            <li class="pb-2 hidden-folded"></li>
+          </ul>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
