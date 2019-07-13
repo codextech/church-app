@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MainService } from 'src/app/_services/main.service';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  groups: any[] = [];
+  constructor(private mainService: MainService) { }
 
   ngOnInit() {
+    this.getGroups();
   }
+
+  getGroups() {
+    this.mainService.getGroups().subscribe( res => {
+      console.log(res);
+      this.groups = res.data;
+    }, err => {
+      console.log(err);
+    });
+  }
+
 
 }

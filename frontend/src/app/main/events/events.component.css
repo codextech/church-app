@@ -15,5 +15,21 @@
 
 .event-entry{
 box-shadow: -1px 3px 15px 9px #22386540;
+}
 
+.event-entry:hover{
+  box-shadow: inset -1px 3px 15px 9px #3f51b561;
+  cursor: pointer;
+}
+
+
+li a {
+  color: #1437e2;
+  cursor: pointer;  
+}
+
+.group-active {
+  background: #e5e0963b;
+  color: #1437e2;
+  zoom: 90%;
 }

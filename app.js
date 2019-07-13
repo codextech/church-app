@@ -60,9 +60,9 @@ app.use('/',express.static(path.join(__dirname, './angular')));
 app.use('/api', apiRoutes);
 
 // access angular page according to routes
-// app.use((req,res) => {
-//   res.sendFile(path.join(__dirname,"angular", "index.html"));
-// })
+app.use((req,res) => {
+  res.sendFile(path.join(__dirname,"angular", "index.html"));
+})
 
 
 

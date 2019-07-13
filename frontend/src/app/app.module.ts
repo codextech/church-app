@@ -22,10 +22,10 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
 
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
-  fgsColor: '#ff5656',
+  fgsColor: '#fbe80ef5',
   fgsSize: 50,
-  overlayColor: '#353e6b',
-  fgsType: SPINNER.threeBounce,
+  overlayColor: '#465eb6',
+  fgsType: SPINNER.fadingCircle,
 };
 
 @NgModule({
