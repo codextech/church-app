@@ -9,7 +9,7 @@ const config = {
   },
 
   "production":{
-    "host":"68.66.224.6",
+    "host":"cdame7.church",
      "user":"cdamechu_cdamechu",
      "password":"YN32(9-b4eWiVw",
      "database":"cdamechu_churchdb"
