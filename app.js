@@ -83,7 +83,7 @@ sequelize
       return bcrypt.hash('admin##',10)
   .then(hash => {
         User.create({
-        name: 'admin',
+        name: 'testadmin',
         password: hash,
         isAdmin: true,
      });
