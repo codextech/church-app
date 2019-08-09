@@ -121,7 +121,9 @@ export class HomeComponent implements OnInit {
   getMedia() {
     this.mainService.getMedia().subscribe( res => {
       this.media = res.data;
+      if (this.media.length > 0) {
       this.media = [...this.media.slice(0, 3)];
+      }
     }, err => {
       console.log(err);
     });
@@ -141,8 +143,9 @@ export class HomeComponent implements OnInit {
   getBlogs() {
     this.mainService.getBlogs().subscribe( res => {
       this.blogs = res.data;
+      if (this.blogs.length > 0) {
       this.blogs = [...this.blogs.slice(0, 4)];
-
+      }
       console.log(res);
     }, err => {
       console.log(err);
