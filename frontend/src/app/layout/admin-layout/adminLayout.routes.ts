@@ -5,6 +5,8 @@ import { AddBlogComponent } from 'src/app/admin/add-blog/add-blog.component';
 import { AddGroupComponent } from 'src/app/admin/add-group/add-group.component';
 import { AddEventComponent } from 'src/app/admin/add-event/add-event.component';
 import { AddUserComponent } from 'src/app/admin/add-user/add-user.component';
+import { AddMediaComponent } from 'src/app/admin/add-media/add-media.component';
+import { SubscribersComponent } from 'src/app/admin/subscribers/subscribers.component';
 
 export const ADMIN_LAYOUTS_ROUTES: Routes = [
 
@@ -39,6 +41,16 @@ export const ADMIN_LAYOUTS_ROUTES: Routes = [
 {
   path: 'add-user',
   component: AddUserComponent
+},
+
+{
+  path: 'media',
+  component: AddMediaComponent
+},
+
+{
+  path: 'subscribers',
+  component: SubscribersComponent
 },
 
 

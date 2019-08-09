@@ -1,0 +1,61 @@
+
+
+
+
+
+
+
+ <div class="padding">
+    <div class="row">
+
+      <div class="col-md-12 table-responsive">
+        <div class="box">
+            <div class="box-head">
+              <h4>{{scubscribers.length}} subscribers</h4>
+            </div>
+            <div class="box-body">
+
+
+                <table class="table">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">Email</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr *ngFor="let s of scubscribers | paginate: { itemsPerPage: 10, currentPage: p }">
+
+                          <td>{{ s.email }}</td>
+
+
+                      </tr>
+
+                    </tbody>
+
+                    <div class="text-center">
+                        <pagination-controls maxSize="5" autoHide="true" (pageChange)="p = $event"></pagination-controls>
+                   </div>
+                  </table>
+
+
+          <!-- <ngx-table [configuration]="configuration" [data]="scubscribers" [columns]="columns">
+            <ng-template let-row let-index="index">
+
+              <td>{{ row.email }}</td>
+
+              <td style="display: none" class="fit">
+                <button type="button"
+                  class="btn btn-outline b-primary text-primary">
+                  <i class="fa fa-file"> Export</i>
+                </button>
+              </td>
+            </ng-template>
+          </ngx-table> -->
+          </div>
+        </div>
+      </div>
+
+      </div>
+
+      </div>

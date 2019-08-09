@@ -13,8 +13,9 @@
 
 <section class="ftco-section">
   <div class="container">
-    <div class="row">
-      <div *ngFor="let blog of blogs" class="col-md-4 ftco-animate">
+    <div data-aos="zoom-in" data-aos-duration="1500" class="row">
+      <div *ngFor="let blog of blogs | paginate: { itemsPerPage: 6, currentPage: p }"
+       class="col-md-3 mt-3 ftco-animate">
         <div class="blog-entry">
           <a [routerLink]="['/blog-details', blog.blogId]"  class="block-20" [style.background-image]="'url('+ blog.blogImage + ')'">
           </a>
@@ -31,20 +32,8 @@
       </div>
 
     </div>
-    <div class="row mt-5">
-      <div class="col text-center">
-        <div class="block-27">
-          <ul>
-            <li><a href="#">&lt;</a></li>
-            <li class="active"><span>1</span></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">&gt;</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <div class="text-center">
+        <pagination-controls maxSize="5" autoHide="true" (pageChange)="p = $event"></pagination-controls>
+   </div>
   </div>
 </section>

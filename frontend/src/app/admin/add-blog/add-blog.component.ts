@@ -4,6 +4,7 @@ import { DropzoneConfigInterface, DropzoneComponent, DropzoneDirective } from 'n
 import { IBlog } from 'src/app/_interfaces/IBlog';
 import { ToolbarService, LinkService, ImageService, HtmlEditorService } from '@syncfusion/ej2-angular-richtexteditor';
 import { ToastrService } from 'ngx-toastr';
+import { UserAuthService } from 'src/app/_services/user-auth.service';
 @Component({
   selector: 'app-add-blog',
   templateUrl: './add-blog.component.html',
@@ -30,6 +31,7 @@ export class AddBlogComponent implements OnInit {
     blogTitle: '',
     blogShortDescription: '',
     blogDescription: '',
+    eventGroupId: '',
     blogImage: null
   };
 
@@ -38,7 +40,7 @@ export class AddBlogComponent implements OnInit {
     path: `${environment.apiUrl}uploads/`
 };
 
-  constructor(private toastr: ToastrService) { }
+  constructor(private toastr: ToastrService, private authService: UserAuthService) { }
 
   ngOnInit() {
   }
@@ -54,6 +56,12 @@ export class AddBlogComponent implements OnInit {
        const formData = _filesEvent[2];
        formData.append('blogTitle', this.blogModel.blogTitle);
        formData.append('blogDescription', this.blogModel.blogDescription);
+
+
+       const groupId = this.authService.getGroupId;
+       this.blogModel.eventGroupId = groupId;
+       formData.append('eventGroupId', this.blogModel.eventGroupId);
+
     }
   }
 

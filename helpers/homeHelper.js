@@ -7,6 +7,7 @@ const Blog = require("../models/blog");
 const Contact = require("../models/contact");
 const Group = require("../models/event-group");
 const Event = require("../models/event");
+const Media = require("../models/media");
 const NewsLetter = require("../models/news-letter");
 const genericHelper = require("../helpers/genericHelper");
 
@@ -85,6 +86,22 @@ exports.getGroups = async () => {
   return groups;
 }
 
+/* Media */
+exports.getMedia = async () => {
+
+  var media;
+  try {
+
+
+    media = await Media.findAll({
+      order: [['createdAt', 'DESC']],
+    });
+
+  } catch (error) {
+      console.log(error);
+  }
+  return media;
+}
 
 
 exports.getEvents = async () => {
@@ -102,6 +119,7 @@ exports.getEvents = async () => {
   }
   return events;
 }
+
 
 
 

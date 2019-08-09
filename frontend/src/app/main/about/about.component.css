@@ -1,0 +1,50 @@
+
+
+
+
+
+.elder-img{
+  background-size: 100% 100%;
+}
+
+@media (min-width: 768px){
+
+.pl-md-3, .px-md-3 {
+    padding-left: 3rem !important;
+}
+}
+
+
+:host ::ng-deep .ng2-carouselamos-wrapper{
+  width: 100%;
+}
+
+
+:host ::ng-deep  swiper {
+  height: 100px;
+  width: 100%;
+}
+
+:host ::ng-deep .swiper-wrapper {
+  box-sizing: border-box;
+}
+
+
+
+.testimony-wrap .user-img .quote i {
+  color: #f4e316;
+}
+
+
+.testimony-wrap .user-img .quote {
+  background: #1437e2;
+}
+
+
+@media (min-width: 768px) {
+
+.ftco-section-2 .section-2-blocks-wrapper .text {
+    padding: 2% 2%;
+}
+}
+

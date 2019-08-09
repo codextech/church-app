@@ -1,0 +1,93 @@
+<section id="home" class="video-hero js-fullheight" style="height: 500px; background-image: url(../../../../../assets/images/bg_1.jpg);  background-size:cover; background-position: center center;background-attachment:fixed;" data-section="home">
+  <div class="overlay js-fullheight"></div>
+  <div data-aos="fade-up" data-aos-duration="1000" class="container" style="padding-top: 250px;">
+    <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+      <div class="col-md-10 ftco-animate text-center">
+        <h1 class="mb-4"><strong>{{groupName}}</strong></h1>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section data-aos="zoom-in" data-aos-duration="1500" class="ftco-section ftco-section-2">
+  <div class="container mt-5">
+      <h4>Events</h4>
+    <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+      <div *ngFor="let event of events | paginate: { itemsPerPage: 6, currentPage: p }"
+       class="col-md-3 mt-2">
+        <div class="event-entry d-flex">
+
+          <div class="text">
+            <h3 class="mb-2"><a [routerLink]="['/event-details', event.eventId]">
+              {{event.eventTitle}}
+            </a></h3>
+            <p class="mb-4"> <span>{{ event.eventDate | date}} , {{event.location}}</span></p>
+            <a [routerLink]="['/event-details', event.eventId]"
+             class="mb-4">
+             <img class="event-img" [src]="event.eventImage | SafeUrl" alt="">
+            </a>
+            <p>{{event.eventShortDescription}}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="text-center">
+        <pagination-controls maxSize="5" autoHide="true" (pageChange)="p = $event"></pagination-controls>
+   </div>
+
+    </div>
+
+    <!-- ./col-md-12 -->
+
+
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<hr width="50%">
+
+
+<section class="ftco-section">
+
+  <div class="container">
+      <h4>Blogs</h4>
+
+    <div data-aos="zoom-in" data-aos-duration="1500" class="row">
+      <div *ngFor="let blog of blogs | paginate: { itemsPerPage: 6, currentPage: p }"
+       class="col-md-3 ftco-animate">
+        <div class="blog-entry">
+          <a [routerLink]="['/blog-details', blog.blogId]"  class="block-20" [style.background-image]="'url('+ blog.blogImage + ')'">
+          </a>
+          <div class="text p-4 d-block">
+            <div class="meta mb-3">
+              <div><a href="#">July 12, 2018</a></div>
+              <div><a href="#">Admin</a></div>
+            </div>
+            <h3  class="heading"><a [routerLink]="['/blog-details', blog.blogId]">
+              {{blog.blogTitle}}
+            </a></h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="text-center">
+        <pagination-controls maxSize="5" autoHide="true" (pageChange)="p = $event"></pagination-controls>
+   </div>
+  </div>
+</section>
+

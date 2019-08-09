@@ -1,0 +1,16 @@
+
+
+.video{
+  width: 100%;
+    height: 200px;
+    object-fit: cover;
+    z-index: -100;
+}
+
+
+:host ::ng-deep   .ngx-pagination .current {
+  padding: 0.1875rem 0.625rem;
+  background: #ecb74296;
+  color: #1839e0;
+  cursor: default;
+}

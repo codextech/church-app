@@ -6,6 +6,8 @@ import { BlogsComponent } from 'src/app/main/blogs/blogs.component';
 import { BlogDetailsComponent } from 'src/app/main/blog-details/blog-details.component';
 import { EventsComponent } from 'src/app/main/events/events.component';
 import { EventDetailsComponent } from 'src/app/main/event-details/event-details.component';
+import { MediaComponent } from 'src/app/main/media/media.component';
+import { GroupActivityComponent } from 'src/app/main/group-activity/group-activity.component';
 
 
 
@@ -25,6 +27,9 @@ export const LANDING_LAYOUTS_ROUTES: Routes = [
 
   { path: 'event-details/:id', component: EventDetailsComponent },
 
+  { path: 'media', component: MediaComponent },
+
+  { path: 'group/:id', component: GroupActivityComponent },
 
 
 ];

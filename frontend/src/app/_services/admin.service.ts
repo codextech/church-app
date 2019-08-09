@@ -10,13 +10,19 @@ export class AdminService {
 
 constructor(private http: HttpClient) { }
 
+/* subscribers */
+
+getSubscribers() {
+  return this.http.get<any>(environment.apiUrl + 'api/admin/subscribers');
+}
 /* Contact Request */
 getUnReadRequests() {
   return this.http.get<any>(environment.apiUrl + 'api/admin/contact');
 }
-requestRead(contactId) {
-  return this.http.get<any>(environment.apiUrl + 'api/admin/contact', {
-    params: {contactId : contactId}
+
+requestRead(id) {
+  return this.http.get<any>(environment.apiUrl + 'api/admin/contact-read', {
+    params: {contactId : id}
   });
 }
 
@@ -28,18 +34,18 @@ addGroup(model) {
 
 deleteGroup(id) {
   return this.http.delete<any>(environment.apiUrl + 'api/admin/group', {
-    params: {categoryId: id}
+    params: {groupId: id}
   });
 }
 
 
 
 addUser(model) {
-  return this.http.post<any>(environment.apiUrl  + 'api/auth/user', model);
+  return this.http.post<any>(environment.apiUrl  + 'api/admin/user', model);
   }
 
 
   getUsers() {
-    return this.http.get<any>(environment.apiUrl  + 'api/auth/user');
+    return this.http.get<any>(environment.apiUrl  + 'api/admin/user');
 }
 }

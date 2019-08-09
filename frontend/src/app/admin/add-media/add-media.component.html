@@ -1,0 +1,51 @@
+
+
+ <div class="padding">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="box">
+          <div class="box-header">
+            <h2>Add Videos</h2>
+
+          </div>
+          <div class="box-body">
+
+            <form #mediaForm="ngForm" (ngSubmit)="addMedia()">
+              <div class="form-row">
+
+
+
+                <div class="form-group col-md-12">
+                  <label>Media Title</label>
+                  <input [(ngModel)]="mediaModel.title" name="title" type="text" class="form-control" id="rn"
+                    placeholder="Title" />
+                </div>
+
+
+                <div class="form-group col-md-12">
+                    <label>Short Description</label>
+                    <input [(ngModel)]="mediaModel.description" name="description" type="text" class="form-control" id="rn"
+                      placeholder="Description" />
+                  </div>
+
+
+
+
+                <dropzone class="dropzone-container" [config]="config" (error)="onUploadError($event)"
+                  (sending)="onSending($event)"
+                   (success)="onSuccess($event)"
+                    [message]="'Click or drag Videos here to upload'"></dropzone>
+              </div>
+
+
+              <button type="submit" class="btn primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>

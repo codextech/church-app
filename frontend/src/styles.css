@@ -2,7 +2,6 @@
 
 
 @import "~ngx-easy-table/style.scss";
-
 /* for modal */
 @import "~ngx-smart-modal/ngx-smart-modal";
 /* regular style toast  */
@@ -10,3 +9,23 @@
 
 
 
+@media (max-width: 500px){
+  .logo-img{
+    background: #dcdcdc99;
+      border-radius: 5px;
+  }
+}
+
+
+.btn-gold{
+  background: #f5b931;
+  border: 2px solid #f7be3b;
+  color:black;
+}
+
+.btn-gold:hover{
+  background:none;
+  border: 2px solid #f7be3b;
+  color:black;
+
+}

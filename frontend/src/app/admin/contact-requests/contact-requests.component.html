@@ -11,21 +11,66 @@
     <div class="col-md-12 table-responsive">
       <div class="box">
           <div class="box-body">
+
+
+              <table class="table">
+                  <thead class="thead-light">
+                    <tr>
+                        <th scope="col"></th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Phone</th>
+                      <th scope="col">Country</th>
+                      <th scope="col">Message</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr *ngFor="let c of contacts | paginate: { itemsPerPage: 10, currentPage: p }">
+                        <td *ngIf="c.isRead == false">
+                            <span style="background: yellow;color: #ff392a;font-family: cursive"> new </span>
+                          </td>
+                        <td>{{ c.name }}</td>
+                        <td>{{ c.email }}</td>
+                        <td>{{ c.phone }}</td>
+                        <td>{{ c.country }}</td>
+                        <td>{{ c.message }}</td>
+                        <td class="fit">
+                          <button *ngIf="c.isRead == false" type="button" (click)="markAsRead(c.contactId)"
+                            class="btn btn-outline b-warning text-warning">
+                            <i class="fa fa-check">Mark Read</i>
+                          </button>
+                        </td>
+                    </tr>
+
+                  </tbody>
+
+                  <div class="text-center">
+                      <pagination-controls maxSize="5" autoHide="true" (pageChange)="p = $event"></pagination-controls>
+                 </div>
+                </table>
+
+
+<!--
         <ngx-table [configuration]="configuration" [data]="contacts" [columns]="columns">
           <ng-template let-row let-index="index">
+              <td *ngIf="row.isRead == false">
+                <span style="background: yellow;color: #ff392a;font-family: cursive"> new </span>
+              </td>
             <td>{{ row.name }}</td>
             <td>{{ row.email }}</td>
             <td>{{ row.phone }}</td>
             <td>{{ row.country }}</td>
             <td>{{ row.message }}</td>
-            <!-- <td class="fit">
-              <button
-                class="btn btn-outline b-danger text-danger">
-                <i class="fa fa-trash"></i>
+            <td class="fit">
+              <button *ngIf="row.isRead == false" type="button" (click)="markAsRead(row.contactId)"
+                class="btn btn-outline b-warning text-warning">
+                <i class="fa fa-check">Mark Read</i>
               </button>
-            </td> -->
+            </td>
           </ng-template>
-        </ngx-table>
+        </ngx-table> -->
         </div>
       </div>
     </div>

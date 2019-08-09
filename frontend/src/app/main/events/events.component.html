@@ -12,14 +12,14 @@
 		</section>
 
 
-		<section class="ftco-section ftco-section-2">
+		<section data-aos="zoom-in" data-aos-duration="1500" class="ftco-section ftco-section-2">
 			<div class="container">
 				<div class="row">
         <div class="col-md-9">
           <div class="row">
 
-					<div *ngFor="let event of events" class="col-md-5 mt-5">
-						<div class="event-entry d-flex ftco-animate">
+					<div *ngFor="let event of events | paginate: { itemsPerPage: 6, currentPage: p }" class="col-md-4 mt-2">
+						<div class="event-entry d-flex">
 
     					<div class="text">
                 <h3 class="mb-2"><a [routerLink]="['/event-details', event.eventId]">
@@ -37,21 +37,10 @@
 
         </div>
 
-        <!-- <div class="row mt-5 justify-content-center">
-            <div class="col text-center">
-              <div class="block-27">
-                <ul>
-                  <li><a href="#">&lt;</a></li>
-                  <li class="active"><span>1</span></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">&gt;</a></li>
-                </ul>
-              </div>
-            </div>
-        </div> -->
+
+        <div class="text-center">
+            <pagination-controls maxSize="5" autoHide="true" (pageChange)="p = $event"></pagination-controls>
+       </div>
 
         </div>
 

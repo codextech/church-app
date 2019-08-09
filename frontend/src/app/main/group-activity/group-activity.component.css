@@ -1,0 +1,56 @@
+.event-entry .meta span:first-child {
+  font-size: 20px;
+}
+
+
+.event-img {
+  max-height: 150px;
+  width: 100%;
+}
+
+.event-entry .text {
+  width: calc(100% - 0px);
+  padding: 10px
+}
+
+.event-entry{
+box-shadow: -1px 3px 15px 9px #22386540;
+}
+
+.event-entry:hover{
+  box-shadow: inset -1px 3px 15px 9px #3f51b561;
+  cursor: pointer;
+}
+
+
+li a {
+  color: #1437e2;
+  cursor: pointer;
+}
+
+.group-active {
+  background: #e5e0963b;
+  color: #1437e2;
+  zoom: 90%;
+}
+
+
+:host ::ng-deep   .ngx-pagination .current {
+  padding: 0.1875rem 0.625rem;
+  background: #ecb74296;
+  color: #1839e0;
+  cursor: default;
+}
+
+
+/* blogs */
+
+
+.block-20 {
+  height: 150px;
+}
+
+
+.ftco-degree-bg{
+  border: 1px dotted #182c5830;
+}

@@ -1,29 +1,111 @@
 
 const Blog = require("../models/blog");
 const Contact = require("../models/contact");
+const  NewsLetter = require("../models/news-letter");
 const Group = require("../models/event-group");
 const Event = require("../models/event");
+const Media = require("../models/media");
 const User = require("../models/user");
 const genericHelper = require("../helpers/genericHelper");
+
+const bcrypt = require("bcryptjs");
+
+
+
+/* Add user */
+exports.addUser = async (model) => {
+
+  try {
+
+    var hash = await bcrypt.hashSync(model.password, bcrypt.genSaltSync(10));
+
+      await User.create({
+      name: model.name,
+      readablePassword: model.password,
+      password: hash,
+      eventGroupId: model.eventGroupId
+    });
+
+  } catch (error) {
+     console.log(error);
+  }
+}
+
+
+// get users
+
+exports.getUsers = async () => {
+
+  var users;
+  try {
+
+     // check  unique name
+     users = await User.findAll({
+      include: [
+        { model: Group },
+    ]
+     });
+
+  } catch (error) {
+    console.log(error);
+  }
+  return users;
+}
+
+
+// find user by name
+
+exports.findUserByName = async (name) => {
+
+  var user;
+  try {
+
+     // check  unique name
+     user = await User.findOne({where: { name: name}});
+
+  } catch (error) {
+    console.log(error);
+  }
+  return user;
+}
+
+
+exports.getSubscribers = async () => {
+
+  var data;
+  try {
+
+    data = await NewsLetter.findAll({
+      order: [['createdAt', 'DESC']]
+    });
+
+  } catch (error) {
+    console.log(error);
+  }
+  return data;
+}
 
 /* Contacts */
 
 exports.getUserContactRequests = async () => {
 
+  var requests;
   try {
 
-    await Contact.findAll({
+    requests = await Contact.findAll({
       order: [['createdAt', 'DESC']],
-    },{where : {isRead : false}});
+      where : {isRead : false}
+    });
 
   } catch (error) {
     console.log(error);
   }
+  return requests;
 }
 
 
 
-exports.contactRequestRead = async (contactId) => {
+exports.contactRequestRead = async (id) => {
 
   try {
 
@@ -31,7 +113,7 @@ exports.contactRequestRead = async (contactId) => {
       isRead : true
     },
       {
-        where: { contactId: contactId }
+        where: { contactId: id }
       }
     );
 
@@ -40,6 +122,17 @@ exports.contactRequestRead = async (contactId) => {
   }
 }
 
+
+/* Media */
+
+exports.addMedia = async (model) => {
+
+  try {
+     await Media.create(model);
+  } catch (error) {
+     console.log(error);
+  }
+}
 
 /* Blog */
 
@@ -55,15 +148,17 @@ exports.addBlog = async (model) => {
 
 
 
-/* App Calculator */
 
-exports.addGroup = async (model) => {
+
+exports.addGroup = async (model,groupImage) => {
 
   var group;
   try {
     group = await Group.create({
        name : model.name,
-       isDefault: model.isDefault
+       isDefault: model.isDefault,
+       description: model.description,
+       image: groupImage
      });
   } catch (error) {
      console.log(error);
@@ -83,31 +178,6 @@ exports.removeGroup = async (id) => {
   }
 }
 
-
-
-exports.getCustomerAppRequests = async () => {
-
-  var appRequests;
-  try {
-
-   appRequests =  await AppEstimate.findAll({
-      include: [{
-        model: SubCategory,
-        as: 'subCategories',
-      }],
-      order: [['createdAt', 'DESC']],
-  })
-
-    // subCategories = await Category.findAll({
-    //   order: [['createdAt', 'DESC']],
-    //   include: [{model: SubCategory, as: 'subcategories'}]
-    // });
-
-  } catch (error) {
-      console.log(error);
-  }
-  return appRequests;
-}
 
 
 /* Event */

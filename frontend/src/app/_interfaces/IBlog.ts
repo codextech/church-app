@@ -5,5 +5,6 @@ export interface IBlog {
   blogShortDescription: string;
   blogDescription: string;
   blogImage: any;
+  eventGroupId: string;
 
 }

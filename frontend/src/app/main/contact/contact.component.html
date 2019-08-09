@@ -1,4 +1,4 @@
-<section id="home" class="video-hero js-fullheight" style="height: 500px; background-image: url(../../../../../assets/images/bg_1.jpg);  background-size:cover; background-position: center center;background-attachment:fixed;" data-section="home">
+ <section id="home" class="video-hero js-fullheight" style="height: 500px; background-image: url(../../../../../assets/images/bg_1.jpg);  background-size:cover; background-position: center center;background-attachment:fixed;" data-section="home">
   <div class="overlay js-fullheight"></div>
   <div class="container">
     <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
@@ -12,30 +12,31 @@
 
 <section class="ftco-section contact-section ftco-degree-bg">
   <div class="container bg-light">
-    <div class="row d-flex mb-5 contact-info">
+    <div data-aos="zoom-in" data-aos-duration="1500" class="row d-flex mb-5 text-center">
       <div class="col-md-12 mb-4">
         <h2 class="h4">Contact Information</h2>
       </div>
       <div class="w-100"></div>
-      <div class="col-md-3">
-        <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+      <div class="col-md-6">
+        <p><span>Address:</span> P.O. Box 268
+          Ladson, SC 29456 </p>
       </div>
-      <div class="col-md-3">
-        <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+      <div class="col-md-6">
+        <p><span>Phone:</span> <a href="tel://8438798176"> (843) 879-8176</a></p>
       </div>
-      <div class="col-md-3">
-        <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+      <div class="col-md-6">
+        <p><span>Email:</span> <a href="mailto:info@cdame7.church"> info@cdame7.church</a></p>
       </div>
-      <div class="col-md-3">
-        <p><span>Website</span> <a href="#">yoursite.com</a></p>
+      <div class="col-md-6">
+        <p><span>Website:</span> <a href="/"> www.cdame7.church</a></p>
       </div>
     </div>
-    <div class="row block-9">
-      <div class="col-md-6 pr-md-5">
+    <div class="row block-9 justify-content-center">
+      <div data-aos="zoom-in" data-aos-duration="1000" class="col-md-6 pr-md-5">
         <form #contactForm="ngForm" (ngSubmit)="postRequest()">
           <div class="form-group">
-            <input [(ngModel)]="contactModel.name"
-             name="name" type="text" class="form-control" placeholder="Your Name">
+            <input [(ngModel)]="contactModel.name" name="personname"
+              type="text" class="form-control" placeholder="Your Name">
           </div>
           <div class="form-group">
             <input [(ngModel)]="contactModel.email" name="email" type="text" class="form-control" placeholder="Your Email">
@@ -44,7 +45,7 @@
             <input [(ngModel)]="contactModel.subject" name="subject" type="text" class="form-control" placeholder="Subject">
           </div>
           <div class="form-group">
-            <textarea [(ngModel)]="contactModel.message" name="message" name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+            <textarea [(ngModel)]="contactModel.message" name="message"  cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
           </div>
           <div class="form-group">
             <input type="submit" value="Send Message" class="btn btn-success py-3 px-5">
@@ -53,7 +54,11 @@
 
       </div>
 
-      <div class="col-md-6" id="map"></div>
     </div>
   </div>
 </section>
+
+
+
+
+

@@ -133,22 +133,12 @@
 <img alt="..." src="https://img.icons8.com/bubbles/2x/administrator-male.png">
 </span>
                         <span class=" mx-2 d-none l-h-1x d-lg-block">
-<span>Admin</span>
+<span style="color: white" >{{authService.decodedtoken.name}}</span>
                         </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right w pt-0 mt-2 animate fadeIn">
-                        <a class="dropdown-item" href="settings.html">
-                            <span>Profile</span>
-                        </a>
-                        <a class="dropdown-item" [routerLink]="['/settings']">
-                            <span>Settings</span>
-                        </a>
-
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="docs.html">
-                            Need help?
-                        </a>
-                        <a class="dropdown-item">Sign out</a>
+                        <a class="dropdown-item" (click)="logout()">Sign out</a>
                     </div>
                 </li>
                 <!-- Navarbar toggle btn -->
@@ -160,17 +150,10 @@
                     </a>
                 </li>
             </ul>
-            <!-- Navbar collapse -->
+
             <div  class="navbar-collapse order-lg-1 collapse show" id="navbarToggler">
                 <ul class="navbar-nav mt-2 mt-lg-0 mx-0 mx-lg-2 ">
 
-                        <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" aria-expanded="false" href="#" data-toggle="dropdown">
-                                    Request
-                                 <b *ngIf="false" class="badge badge-pill badge-xs danger up"></b>
-
-                                </a>
-                        </li>
 
                 </ul>
             </div>

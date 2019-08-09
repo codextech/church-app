@@ -4,6 +4,9 @@ import { LandingLayoutComponent } from './layout/landing-layout/landing-layout.c
 import { LANDING_LAYOUTS_ROUTES } from './layout/landing-layout/landingLayout.routes';
 import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
 import { ADMIN_LAYOUTS_ROUTES } from './layout/admin-layout/adminLayout.routes';
+import { AuthGuard } from './_guards/auth.guard';
+import { NoLayoutComponent } from './layout/admin-layout/no-layout/no-layout.component';
+import { NO_LAYOUTS_ROUTES } from './layout/admin-layout/no-layout/noLayout.routes';
 
 const routes: Routes = [
 
@@ -11,9 +14,13 @@ const routes: Routes = [
   children: LANDING_LAYOUTS_ROUTES
   },
 
-  {path: '', component: AdminLayoutComponent,
+  {path: '', component: AdminLayoutComponent,  canActivate: [AuthGuard],
   children: ADMIN_LAYOUTS_ROUTES
   },
+
+  {path: '', component: NoLayoutComponent,
+  children: NO_LAYOUTS_ROUTES
+  }
 ];
 
 @NgModule({

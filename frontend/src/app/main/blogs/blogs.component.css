@@ -1,8 +1,17 @@
 .block-20 {
-  height: 250px;
+  height: 150px;
 }
 
 
 .ftco-degree-bg{
   border: 1px dotted #182c5830;
+}
+
+
+
+:host ::ng-deep   .ngx-pagination .current {
+  padding: 0.1875rem 0.625rem;
+  background: #ecb74296;
+  color: #1839e0;
+  cursor: default;
 }

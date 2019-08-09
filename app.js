@@ -6,6 +6,8 @@ const http = require('http');
 const apiRoutes = require("./routes/api-routes"); // routes
 const sequelize = require("./util/database"); // database
 const sequelizeRealtions = require("./util/table-relations");
+const bcrypt = require("bcryptjs");
+const User = require('./models/user');
 
 
 // start server
@@ -22,8 +24,8 @@ app.listen(port, () => {
 var env = process.env.NODE_ENV || 'dev';
 console.log(env);
 if (env == 'production') {
-global.APIURL = "";
-global.APPURL = "";
+global.APIURL = "https://www.cdame7.church/api";
+global.APPURL = "https://www.cdame7.church/";
 
 }
 if (env == 'dev') {
@@ -70,10 +72,18 @@ app.use((req,res) => {
 sequelizeRealtions.allTableRealtions();
 
 sequelize
-   .sync()
-//  .sync({force: true})
+  //  .sync()
+ .sync({force: true})
   .then(result => {
   console.log('tables created');
+      return bcrypt.hash('admin##',10)
+  .then(hash => {
+        User.create({
+        name: 'admin',
+        password: hash,
+        isAdmin: true,
+     });
+  })
 }).catch(err => {
     console.log("error occured in db" + err);
   });

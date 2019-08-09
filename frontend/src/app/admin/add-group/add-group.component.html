@@ -34,52 +34,116 @@
  -->
 
 
- <div class="padding">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="box">
-          <div class="box-header">
-            <h2>Add Group</h2>
+<div class="padding">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="box">
+        <div class="box-header">
+          <h2>Add Group</h2>
 
-          </div>
-          <div class="box-body">
+        </div>
+        <div class="box-body">
 
-            <form #groupForm="ngForm" (ngSubmit)="addGroup()">
-              <div class="form-row">
+          <form #groupForm="ngForm" (ngSubmit)="addGroup()">
+            <div class="form-row">
 
 
 
-                <div class="form-group col-md-12">
-                  <label>Group Name</label>
-                  <input [(ngModel)]="groupModel.name" name="name"
-                   type="text" class="form-control"
-                    placeholder="Name" />
+              <div class="form-group col-md-12">
+                <label>Group Name</label>
+                <input [(ngModel)]="groupModel.name" name="name" type="text" class="form-control" placeholder="Name" />
+              </div>
+
+              <div class="form-group col-md-12">
+                  <label>Group Introduction</label>
+                  <input [(ngModel)]="groupModel.description" name="description" type="text" class="form-control" placeholder="short description" />
                 </div>
 
-                <div class="form-group col-md-3">
-                    <label>Make This Default Group</label>
-                    <input [(ngModel)]="groupModel.isDefault"
-                    name="isDefault" type="checkbox" class="form-control"
-                       />
-                  </div>
-
+              <div class="form-group col-md-12">
+                <label>Make This Default Group</label>
+                <input style="width: 20px;" [(ngModel)]="groupModel.isDefault" name="isDefault" type="checkbox" class="form-control" />
               </div>
 
 
+              <div class="mb-3 col-md-4">
+                  <div class="file-upload-container">
+                      <label>Group Image </label>
+
+                      <div *ngIf="imagePreview" style="margin: auto" class="col-6 col-sm-3 col-md-4">
+                          <div>
+                            <img class="w-100" alt="" [src]="imagePreview" />
+                          </div>
+                      </div>
+
+                      <br />
+                      <input
+                        style="display:none"
+                        #image
+                        type="file"
+                        (change)="onImagePicked($event)"
+                      />
+
+                      <button
+                        type="button"
+                        (click)="image.click()"
+                        class="btn btn-fw accent">
+                        <i class="fa fa-image"></i>
+                        Select  Image
+                      </button>
+
+                      <button *ngIf="imagePreview"
+                      type="button"
+                      (click)="cancelImagePreview()"
+                      class="btn default ml-2">
+                      Cancel
+                    </button>
+                  </div>
+
+                </div>
+
+            </div>
 
 
-              <button type="submit" class="btn primary">Submit</button>
-            </form>
-          </div>
+
+
+            <button type="submit" class="btn primary">Submit</button>
+          </form>
         </div>
       </div>
+    </div>
 
 
 
     <div class="col-md-12 table-responsive">
-        <div class="box">
-            <div class="box-body">
-          <ngx-table [configuration]="configuration" [data]="groups" [columns]="columns">
+      <div class="box">
+        <div class="box-body">
+
+
+          <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Group</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let g of groups">
+                <td>{{g.name}}</td>
+                <td class="fit">
+                    <button (click)="deleteGroup(g.eventGroupId)"
+                      class="btn btn-outline b-danger text-danger">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                  </td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+
+          <!-- <ngx-table [configuration]="configuration" [data]="groups" [columns]="columns">
             <ng-template let-row let-index="index">
               <td>{{ row.name }}</td>
 
@@ -90,11 +154,11 @@
                 </button>
               </td>
             </ng-template>
-          </ngx-table>
-          </div>
+          </ngx-table> -->
         </div>
       </div>
-
-
     </div>
+
+
   </div>
+</div>

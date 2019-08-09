@@ -93,6 +93,20 @@ exports.getEvents = async (req, res, next) => {
 
 }
 
+exports.getMedia = async (req, res, next) => {
+  var media;
+  try {
+
+    media = await  homeHelper.getMedia();
+
+  } catch (error) {
+  genericHelper.jsonResponse(res,500,"bad request",error);
+
+  }
+  genericHelper.jsonResponse(res,200,"media",media);
+
+}
+
 
 
 exports.getEventById = async (req, res, next) => {

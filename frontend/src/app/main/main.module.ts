@@ -12,7 +12,15 @@ import { AboutComponent } from './about/about.component';
 import { EventsComponent } from './events/events.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { SafeUrlPipe } from '../_pipe/safeUrl.pipe';
-
+import { CountUpModule } from 'countup.js-angular2';
+import { MediaComponent } from './media/media.component';
+import { Ng2CarouselamosModule } from 'ng2-carouselamos';
+import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
+import { CountdownTimerModule } from 'ngx-countdown-timer';
+import { CountdownModule } from 'ng2-countdown-timer';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { GroupActivityComponent } from './group-activity/group-activity.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   imports: [
@@ -20,6 +28,13 @@ import { SafeUrlPipe } from '../_pipe/safeUrl.pipe';
     SharedUIModule,
     RouterModule,
     FormsModule,
+    CountUpModule,
+    Ng2CarouselamosModule,
+    NgxUsefulSwiperModule,
+    CountdownTimerModule,
+    CountdownModule,
+    NgxPaginationModule,
+    CarouselModule
   ],
 
   declarations: [
@@ -30,8 +45,10 @@ import { SafeUrlPipe } from '../_pipe/safeUrl.pipe';
     ContactComponent,
     BlogsComponent,
     BlogDetailsComponent,
+    MediaComponent,
     SafeHtmlPipe,
-    SafeUrlPipe
+    SafeUrlPipe,
+    GroupActivityComponent
   ],
   exports: [SafeHtmlPipe,SafeUrlPipe]
 })

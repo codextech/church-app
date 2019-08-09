@@ -9,10 +9,10 @@ const config = {
   },
 
   "production":{
-    "host":"localhost:3306",
-     "user":"tanzeel",
-     "password":"tanzeel10$",
-     "database":"admin_vxapp"
+    "host":"localhost",
+     "user":"cdamechu_cdamechu",
+     "password":"YN32(9-b4eWiVw",
+     "database":"cdamechu_churchdb"
 }
 
 }

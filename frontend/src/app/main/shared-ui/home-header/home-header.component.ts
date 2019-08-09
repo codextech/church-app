@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MainService } from 'src/app/_services/main.service';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-home-header',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeHeaderComponent implements OnInit {
 
-  constructor() { }
+  groups: any[] = [];
+  constructor(private mainService: MainService) { }
 
   ngOnInit() {
+    this.getGroups();
+  }
+
+  getGroups() {
+    this.mainService.getGroups().subscribe( res => {
+      console.log(res);
+     const groups = res.data;
+      this.groups = _.orderBy(groups, [g => g.name.toLowerCase()], ['asc']);
+    }, err => {
+      console.log(err);
+    });
   }
 
 }

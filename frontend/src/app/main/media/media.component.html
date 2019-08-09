@@ -1,0 +1,43 @@
+<section id="home" class="video-hero js-fullheight" style="height: 500px; background-image: url(../../../../../assets/images/bg_1.jpg);  background-size:cover; background-position: center center;background-attachment:fixed;" data-section="home">
+  <div class="overlay js-fullheight"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+      <div class="col-md-10 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+        <p class="breadcrumbs mb-2" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a [routerLink]="['/']">Home</a></span> <span>Blog</span></p>
+        <h1 class="mb-3 mt-0 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">media</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section   class="ftco-section">
+    <div class="container">
+      <div class="row no-gutters justify-content-center mt-5em">
+        <div data-aos="zoom-in" data-aos-duration="1500" class="col-md-7 text-center heading-section ftco-animate"><span class="subheading">Events</span>
+          <h2 class="mb-4">Watch our Events</h2>
+        </div>
+      </div>
+      <div  class="row">
+        <div *ngFor="let m of media | paginate: { itemsPerPage: 6, currentPage: p }" class="col-md-4">
+          <div  class="sermons">
+
+            <video class="video" controls>
+                <source [src]="m.video" type="video/mp4">
+              Your browser does not support the video tag.
+              </video>
+            <div class="text">
+              <h3><a href="#">{{m.title}}</a></h3>
+              <span class="position">{{m.description}}</span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="text-center">
+            <pagination-controls maxSize="5" autoHide="true" (pageChange)="p = $event"></pagination-controls>
+       </div>
+      </div>
+
+    </div>
+  </section>

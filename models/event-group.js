@@ -12,7 +12,9 @@ const EventGroup = sequelize.define('eventGroup', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  isDefault: Sequelize.BOOLEAN
+  isDefault: Sequelize.BOOLEAN,
+  description: Sequelize.STRING,
+  image: Sequelize.STRING,
 });
 
 

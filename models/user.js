@@ -17,6 +17,9 @@ const User = sequelize.define('user', {
     allowNull: false
   },
 
+  readablePassword: Sequelize.STRING,
+  isAdmin: Sequelize.BOOLEAN
+
 });
 
 

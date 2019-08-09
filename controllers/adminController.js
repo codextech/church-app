@@ -14,12 +14,29 @@ exports.addNewUser = async (req, res, next) => {
   var model = req.body;
   try {
 
-     await  adminHelper.addUser(blogModel);
+   const userName = await  adminHelper.findUserByName(model.name);
+    if (userName) {
+  genericHelper.jsonResponse(res,400,"Name already in use!",null);
+    }
+
+     await  adminHelper.addUser(model);
   } catch (error) {
   genericHelper.jsonResponse(res,500,"Bad Request",error);
   }
-  genericHelper.jsonResponse(res,200,"Blog Added",null);
+  genericHelper.jsonResponse(res,200,"User Added",null);
 }
+
+
+exports.getUsers = async (req, res, next) => {
+  var users;
+  try {
+    users =  await  adminHelper.getUsers();
+  } catch (error) {
+   genericHelper.jsonResponse(res,500,"Bad Request",error);
+  }
+  genericHelper.jsonResponse(res,200,"users",users);
+}
+
 
 
 
@@ -38,17 +55,39 @@ exports.addBlog = async (req, res, next) => {
   var model = req.body;
   try {
 
+    if (model.eventGroupId == 'null') {
+      model.eventGroupId = null
+    }
+
   var imageUrl = genericHelper.getImageUrlFromArray(req, req.files[0]);
   const blogModel = {
     blogTitle: model.blogTitle,
     blogDescription: model.blogDescription,
     blogImage: imageUrl,
+    eventGroupId : model.eventGroupId
   }
      await  adminHelper.addBlog(blogModel);
   } catch (error) {
   genericHelper.jsonResponse(res,500,"Bad Request",error);
   }
   genericHelper.jsonResponse(res,200,"Blog Added",null);
+}
+
+exports.addMedia = async (req, res, next) => {
+  var model = req.body;
+  try {
+
+  var videoUrl = genericHelper.getImageUrlFromArray(req, req.files[0]);
+  const mediaObj = {
+    title: model.title,
+    description: model.description,
+    video: videoUrl,
+  }
+     await  adminHelper.addMedia(mediaObj);
+  } catch (error) {
+  genericHelper.jsonResponse(res,500,"Bad Request",error);
+  }
+  genericHelper.jsonResponse(res,200,"Media Added",null);
 }
 
 exports.getBlogDetails = async (req, res, next) => {
@@ -85,15 +124,32 @@ exports.readContactRequests = async (req, res, next) => {
 }
 
 
+/* Subscribers */
+
+exports.getSubscribers = async (req, res, next) => {
+  var data;
+  try {
+    data =  await  adminHelper.getSubscribers();
+  } catch (error) {
+   genericHelper.jsonResponse(res,500,"Bad Request",error);
+  }
+  genericHelper.jsonResponse(res,200,"data",data);
+}
 
 /* Events */
 
 exports.addGroup = async (req, res, next) => {
   var model = req.body;
   var group;
+  var groupImage
   try {
 
-    group =  await  adminHelper.addGroup(model);
+
+    if (req.files['image'][0]) {
+      groupImage = genericHelper.getImageUrlFromArray(req, req.files['image'][0]);
+    }
+
+    group =  await  adminHelper.addGroup(model, groupImage);
   } catch (error) {
   genericHelper.jsonResponse(res,500,"Bad Request",error);
   }
@@ -101,14 +157,14 @@ exports.addGroup = async (req, res, next) => {
 }
 
 exports.removeGroup = async (req, res, next) => {
-  var id = req.query.categoryId;
+  var id = req.query.groupId;
   try {
 
-      await  adminHelper.removeCategory(id);
+      await  adminHelper.removeGroup(id);
   } catch (error) {
   genericHelper.jsonResponse(res,500,"Bad Request",error);
   }
-  genericHelper.jsonResponse(res,200,"Category Deleted",null);
+  genericHelper.jsonResponse(res,200,"Group Deleted",null);
 }
 
 
@@ -119,6 +175,10 @@ exports.addEvent = async (req, res, next) => {
   var model = req.body;
   try {
 
+    if (model.eventGroupId == 'null') {
+      model.eventGroupId = null
+    }
+
   var imageUrl = genericHelper.getImageUrlFromArray(req, req.files[0]);
   const eventModel = {
     eventGroupId: model.eventGroupId,
@@ -127,7 +187,8 @@ exports.addEvent = async (req, res, next) => {
     eventDescription: model.eventDescription,
     eventImage: imageUrl,
     eventDate: model.eventDate,
-    location: model.location
+    location: model.location,
+    eventGroupId: model.eventGroupId
   }
      await  adminHelper.addEvent(eventModel);
   } catch (error) {

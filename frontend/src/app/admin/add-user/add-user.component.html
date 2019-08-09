@@ -39,7 +39,7 @@
       <div class="col-sm-12">
         <div class="box">
           <div class="box-header">
-            <h2>Add Group</h2>
+            <h2>Add User</h2>
 
           </div>
           <div class="box-body">
@@ -48,6 +48,17 @@
               <div class="form-row">
 
 
+
+                  <div class="form-group col-md-12">
+                      <label>Group</label>
+                      <select [(ngModel)]="userModel.eventGroupId" name="eventGroupId"
+                       class="form-control">
+                        <option disabled value="0">Select Group</option>
+                        <option *ngFor="let group of groups" [value]="group.eventGroupId">
+                           {{group.name}}
+                        </option>
+                      </select>
+                    </div>
 
                 <div class="form-group col-md-12">
                   <label>User Name</label>
@@ -76,18 +87,39 @@
     <div class="col-md-12 table-responsive">
         <div class="box">
             <div class="box-body">
-          <ngx-table [configuration]="configuration" [data]="users" [columns]="columns">
+
+                <table class="table">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">Group</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr *ngFor="let u of users | paginate: { itemsPerPage: 10, currentPage: p }">
+                          <td>{{ u.name }}</td>
+                          <td>{{ u.readablePassword }}</td>
+                          <td>{{ u.eventGroup?.name }}</td>
+                      </tr>
+
+                    </tbody>
+
+                    <div class="text-center">
+                        <pagination-controls maxSize="5" autoHide="true" (pageChange)="p = $event"></pagination-controls>
+                   </div>
+                  </table>
+
+
+
+          <!-- <ngx-table [configuration]="configuration" [data]="users" [columns]="columns">
             <ng-template let-row let-index="index">
               <td>{{ row.name }}</td>
-              <td>{{ row.password }}</td>
-              <!-- <td class="fit">
-                <button (click)="deleteGroup(row.eventGroupId)"
-                  class="btn btn-outline b-danger text-danger">
-                  <i class="fa fa-trash"></i>
-                </button>
-              </td> -->
+              <td>{{ row.readablePassword }}</td>
+              <td>{{ row.eventGroup?.name }}</td>
             </ng-template>
-          </ngx-table>
+          </ngx-table> -->
           </div>
         </div>
       </div>

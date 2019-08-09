@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { IContact } from 'src/app/_interfaces/IContact';
 import { AdminService } from 'src/app/_services/admin.service';
 import { ConfigService } from 'src/app/_services/config-datatable';
+import { window } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contact-requests',
@@ -14,6 +16,11 @@ export class ContactRequestsComponent implements OnInit {
 
   configuration = ConfigService.config;
   columns = [
+
+    {
+      key: '',
+      title: ''
+    },
 
     {
       key: 'name',
@@ -39,14 +46,16 @@ export class ContactRequestsComponent implements OnInit {
       title: 'Message'
     },
 
+
     {
       key: 'actions', title: ''
     }
   ];
 
+  p: 1;
 
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.getRequests();
@@ -61,4 +70,15 @@ export class ContactRequestsComponent implements OnInit {
     });
   }
 
+  markAsRead(id) {
+    console.log(id);
+
+    this.adminService.requestRead(id).subscribe( res => {
+      this.toastr.success('Done');
+      location.reload();
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
+  }
 }

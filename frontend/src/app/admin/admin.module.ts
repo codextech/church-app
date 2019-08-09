@@ -13,6 +13,9 @@ import { TableModule } from 'ngx-easy-table';
 import { AddGroupComponent } from './add-group/add-group.component';
 import { AddEventComponent } from './add-event/add-event.component';
 import { AddUserComponent } from './add-user/add-user.component';
+import { AddMediaComponent } from './add-media/add-media.component';
+import { SubscribersComponent } from './subscribers/subscribers.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -25,6 +28,8 @@ import { AddUserComponent } from './add-user/add-user.component';
     TableModule,
     RichTextEditorAllModule,
     NgxSmartModalModule.forChild(),
+    NgxPaginationModule
+
 
   ],
   declarations: [
@@ -33,7 +38,9 @@ import { AddUserComponent } from './add-user/add-user.component';
     AddGroupComponent,
     AddBlogComponent,
     AddEventComponent,
-    AddUserComponent
+    AddUserComponent,
+    AddMediaComponent,
+    SubscribersComponent
   ]
 })
 export class AdminModule { }

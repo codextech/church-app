@@ -28,6 +28,9 @@ export class MainService {
     });
   }
 
+  getMedia() {
+    return this.http.get<any>(environment.apiUrl + 'api/main/media');
+  }
   getGroups() {
     return this.http.get<any>(environment.apiUrl + 'api/main/group');
   }

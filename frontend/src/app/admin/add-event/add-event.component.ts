@@ -3,6 +3,7 @@ import { MainService } from 'src/app/_services/main.service';
 import { DropzoneConfigInterface, DropzoneComponent, DropzoneDirective } from 'ngx-dropzone-wrapper';
 import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
+import { UserAuthService } from 'src/app/_services/user-auth.service';
 
 @Component({
   selector: 'app-add-event',
@@ -11,7 +12,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddEventComponent implements OnInit {
 
-  constructor(private mainService: MainService, private toastr: ToastrService) { }
+  constructor(private mainService: MainService,
+    private authService: UserAuthService,
+     private toastr: ToastrService) { }
 
   groups: any [] = [];
   eventModel: any = {};
@@ -41,6 +44,13 @@ export class AddEventComponent implements OnInit {
   getGroups() {
     this.mainService.getGroups().subscribe( res => {
       this.groups = res.data;
+      if (this.authService.getGroupId) {
+      this.groups =  this.groups.filter(i => i.eventGroupId === this.authService.getGroupId);
+         this.eventModel.eventGroupId = this.groups[0].eventGroupId;
+
+
+
+    }
       console.log(res);
     }, err => {
       console.log(err);

@@ -11,6 +11,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class BlogsComponent implements OnInit {
 
   blogs: IBlog[] = [];
+  p = 1;
   constructor(private mainService: MainService) { }
 
   ngOnInit() {

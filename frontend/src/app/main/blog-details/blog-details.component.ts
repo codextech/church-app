@@ -16,7 +16,8 @@ export class BlogDetailsComponent implements OnInit {
     blogDescription: '',
     blogShortDescription: '',
     blogImage: '',
-    blogTitle: ''
+    blogTitle: '',
+    eventGroupId: '',
   };
   id: string;
   constructor(private mainService: MainService, private activatedRoute: ActivatedRoute ) { }

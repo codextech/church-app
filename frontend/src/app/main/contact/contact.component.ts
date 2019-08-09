@@ -29,7 +29,12 @@ export class ContactComponent implements OnInit {
   postRequest() {
       this.mainService.addUserRequest(this.contactModel).subscribe( res => {
         console.log(res);
-        this.router.navigateByUrl('/');
+        // this.router.navigateByUrl('/');
+        this.contactModel = { name: '',
+        message: '',
+        email: '',
+        subject: '',
+        isRead: false};
       this.toastr.success('We will contact you soon');
       }, err => {
         console.log(err);

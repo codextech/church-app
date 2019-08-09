@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  // apiUrl: 'https://www.cdame7.church/'
+
     apiUrl: 'http://localhost:3000/'
 
 };
