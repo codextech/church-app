@@ -24,8 +24,12 @@ app.listen(port, () => {
 var env = process.env.NODE_ENV || 'dev';
 console.log(env);
 if (env == 'production') {
-global.APIURL = "https://www.cdame7.church/api";
-global.APPURL = "https://www.cdame7.church/";
+/* global.APIURL = "https://www.cdame7.church/api";
+global.APPURL = "https://www.cdame7.church/"; */
+
+global.APIURL = "https://floating-waters-44243.herokuapp.com/api";
+global.APPURL = "https://floating-waters-44243.herokuapp.com/";
+
 
 }
 if (env == 'dev') {
