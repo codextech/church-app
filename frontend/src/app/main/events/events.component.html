@@ -28,7 +28,7 @@
                 <p class="mb-4"> <span>{{ event.eventDate | date}} , {{event.location}}</span></p>
                 <a [routerLink]="['/event-details', event.eventId]"
                  class="mb-4">
-                 <img class="event-img" [src]="event.eventImage | SafeUrl" alt="">
+                 <img class="event-img" [src]="event.eventImage" alt="">
                 </a>
     						<p>{{event.eventShortDescription}}</p>
     					</div>

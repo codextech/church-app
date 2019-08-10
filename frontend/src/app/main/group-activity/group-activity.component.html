@@ -28,7 +28,7 @@
             <p class="mb-4"> <span>{{ event.eventDate | date}} , {{event.location}}</span></p>
             <a [routerLink]="['/event-details', event.eventId]"
              class="mb-4">
-             <img class="event-img" [src]="event.eventImage | SafeUrl" alt="">
+             <img class="event-img" [src]="event.eventImage" alt="">
             </a>
             <p>{{event.eventShortDescription}}</p>
           </div>
@@ -70,7 +70,7 @@
       <div *ngFor="let blog of blogs | paginate: { itemsPerPage: 6, currentPage: p }"
        class="col-md-3 ftco-animate">
         <div class="blog-entry">
-          <a [routerLink]="['/blog-details', blog.blogId]"  class="block-20" [style.background-image]="'url('+ blog.blogImage + ')'">
+          <a [routerLink]="['/blog-details', blog.blogId]"  class="block-20" [style.background-image]="'url('+ blog.blogImage + ')' | SafeUrl">
           </a>
           <div class="text p-4 d-block">
             <div class="meta mb-3">

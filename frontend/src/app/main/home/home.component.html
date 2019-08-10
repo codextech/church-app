@@ -289,7 +289,7 @@
               <p class="mb-2"><span>{{event.eventDate | date}}, {{event.location}}</span></p>
               <a [routerLink]="['/event-details', event.eventId]">
 
-               <img class="event-img" [src]="event.eventImage | SafeUrl" alt="">
+               <img class="event-img" [src]="event.eventImage" alt="">
 
               </a>
             </div>
@@ -312,7 +312,7 @@
     <div class="row">
       <div *ngFor="let blog of blogs" class="col-md-3 ftco-animate">
         <div class="blog-entry">
-          <a [routerLink]="['/blog-details',blog.blogId]"  class="block-20" [style.background-image]="'url('+ blog.blogImage + ')'">
+          <a [routerLink]="['/blog-details',blog.blogId]"  class="block-20" [style.background-image]="'url('+ blog.blogImage +')'| SafeUrl">
           </a>
           <div class="text p-4 d-block">
             <div class="meta mb-3">
