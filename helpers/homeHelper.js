@@ -9,6 +9,8 @@ const Group = require("../models/event-group");
 const Event = require("../models/event");
 const Media = require("../models/media");
 const NewsLetter = require("../models/news-letter");
+const User = require("../models/user");
+const ChurchLocation = require("../models/church-location");
 const genericHelper = require("../helpers/genericHelper");
 
 
@@ -45,6 +47,7 @@ exports.getBlogs = async () => {
 
     blogs = await Blog.findAll({
       order: [['blogId', 'DESC']],
+      include: [{model: Group, as: 'eventGroup'}]
     });
 
   } catch (error) {
@@ -66,6 +69,20 @@ exports.getBlogDetails = async (id) => {
 }
 
 
+/* locations */
+
+exports.getLocations = async () => {
+
+  var locations;
+  try {
+
+    locations = await ChurchLocation.findAll();
+
+  } catch (error) {
+      console.log(error);
+  }
+  return locations;
+}
 
 /* Events */
 

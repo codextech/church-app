@@ -29,7 +29,7 @@ export const LANDING_LAYOUTS_ROUTES: Routes = [
 
   { path: 'media', component: MediaComponent },
 
-  { path: 'group/:id', component: GroupActivityComponent },
+  { path: 'group/:id/:name', component: GroupActivityComponent },
 
 
 ];

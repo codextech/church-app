@@ -16,6 +16,7 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { AddMediaComponent } from './add-media/add-media.component';
 import { SubscribersComponent } from './subscribers/subscribers.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AddLocationComponent } from './add-location/add-location.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AddEventComponent,
     AddUserComponent,
     AddMediaComponent,
+    AddLocationComponent,
     SubscribersComponent
   ]
 })

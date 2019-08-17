@@ -67,6 +67,7 @@ export class AddUserComponent implements OnInit {
   addUser() {
     this.adminService.addUser(this.userModel).subscribe( res => {
       this.toastr.success('User Added');
+      location.reload();
     }, err => {
       console.log(err);
     });

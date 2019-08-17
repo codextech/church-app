@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   latestEvents: any = {};
   nextEventDate: any;
-  config: SwiperOptions = {
+/*   config: SwiperOptions = {
     pagination: { el: '.swiper-pagination', clickable: true },
     navigation: {
       nextEl: '.swiper-button-next',
@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
       crossfade: true
     }
 
-  };
+  }; */
 
   customOptions: OwlOptions = {
     loop: true,
@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit {
     autoplay: true,
     navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
     autoplayHoverPause: true,
-    autoplayTimeout: 5000,
+    autoplaySpeed: 5000,
     responsive: {
         0: {
             items: 1,
@@ -81,22 +81,13 @@ export class HomeComponent implements OnInit {
   cars: any[] =[];
   media: any[] =[];
   groups: any[] =[];
+  locations: any[] =[];
   totalEvents: any;
 
 
   selectedIndex: any;
   selectedItem: any;
   constructor(private mainService: MainService, private toastr: ToastrService) {
-
-    this.cars = [
-      {vin: 'r3278r2'},
-      {vin: 'jhto2g2'},
-      {vin: 'h453w54'},
-      {vin: 'h453w54'},
-      {vin: 'h453w54'},
-      {vin: 'h453w54'},
-      {vin: 'g43gwwg'},];
-
   }
 
   ngOnInit() {
@@ -104,8 +95,18 @@ export class HomeComponent implements OnInit {
     this.getEvents();
     this.getMedia();
     this.getGroups();
+    this.getLocations();
   }
 
+  getLocations() {
+    this.mainService.getLocations().subscribe( res => {
+      console.log(res);
+      const locations = res.data;
+      this.locations = _.orderBy(locations, [l => l.name.toLowerCase()], ['asc']);
+    }, err => {
+      console.log(err);
+    });
+  }
 
   getGroups() {
     this.mainService.getGroups().subscribe( res => {
@@ -144,7 +145,8 @@ export class HomeComponent implements OnInit {
     this.mainService.getBlogs().subscribe( res => {
       this.blogs = res.data;
       if (this.blogs.length > 0) {
-      this.blogs = [...this.blogs.slice(0, 4)];
+
+      this.blogs = [...this.blogs.filter(i => i.eventGroupId == null).slice(0, 4)];
       }
       console.log(res);
     }, err => {

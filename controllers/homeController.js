@@ -48,6 +48,20 @@ exports.getBlogById = async (req, res, next) => {
 }
 
 
+/* Locations */
+exports.getLocations = async (req, res, next) => {
+  var locations;
+  try {
+    locations = await  homeHelper.getLocations();
+
+  } catch (error) {
+  genericHelper.jsonResponse(res,500,"bad request",error);
+
+  }
+  genericHelper.jsonResponse(res,200,"locations",locations);
+
+}
+
 /* Events */
 
 

@@ -9,6 +9,31 @@ const genericHelper = require("../helpers/genericHelper");
 
 
 
+exports.addLocation = async (req, res, next) => {
+  var model = req.body;
+  try {
+
+     await  adminHelper.addLocation(model);
+  } catch (error) {
+  genericHelper.jsonResponse(res,500,"Bad Request",error);
+  }
+  genericHelper.jsonResponse(res,200,"Location Added",null);
+}
+
+
+
+exports.removeLocation = async (req, res, next) => {
+  var id = req.query.id;
+  try {
+
+      await  adminHelper.deleteLocation(id);
+  } catch (error) {
+  genericHelper.jsonResponse(res,500,"Bad Request",error);
+  }
+  genericHelper.jsonResponse(res,200,"Deleted",null);
+}
+
+
 
 exports.addNewUser = async (req, res, next) => {
   var model = req.body;

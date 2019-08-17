@@ -121,7 +121,7 @@
         <p>Praise the Lord and Fellowship with the Saints at one of our 27 churches</p>
       </div>
     </div>
-    <swiper [config]="config">
+ <!--    <swiper [config]="config">
       <div class="swiper-wrapper">
         <div *ngFor="let c of cars" class="d-flex align-self-stretch swiper-slide">
           <div class="media block-6 services d-block text-center">
@@ -136,13 +136,32 @@
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
-    </swiper>
+    </swiper> -->
+
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let item of locations;let i = index">
+        <ng-template carouselSlide [id]="item.id">
+          <div class="d-flex">
+            <div class="media block-6 services d-block text-center">
+              <div class="d-flex justify-content-center"><div class="icon d-flex justify-content-center mb-3"><span class="align-self-center flaticon-planet-earth"></span></div></div>
+              <div class="media-body p-2 mt-3">
+                <a href="{{item.link}}" target="blank">
+                <h3 class="heading"> {{item.name}}</h3>
+                </a>
+                <p>{{item.location}}</p>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ng-container>
+
+    </owl-carousel-o>
   </div>
 </section>
 
  <section class="ftco-section testimony-section bg-light">
-    <div class="container">
-      <div data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="1000"
+    <div data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="1000" class="container">
+      <div
        class="row justify-content-center">
         <div class="col-md-7 text-center heading-section ftco-animate">
           <span class="subheading">Watch, Read, Get Inspired, and Share Our Story</span>
@@ -150,46 +169,21 @@
           <p>The Charleston District has several auxiliary ministries dedicated to edifying of all God's people</p>
         </div>
       </div>
-        <!--   <div class="">
-              <swiper [config]="config">
-                  <div class="swiper-wrapper">
-            <div *ngFor="let c of cars" class="item text-center">
-              <div   class="testimony-wrap p-4">
-                <div class="user-img mb-4" style="background-image: url(../../../../../assets/images/person_1.jpg)">
-                  <span class="quote d-flex align-items-center justify-content-center">
-                    <i class="icon-quote-left"></i>
-                  </span>
-                </div>
-                <div class="text">
-                  <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                  <p class="name">DOS</p>
-                  <span class="position">Church Group</span>
-                </div>
-              </div>
-            </div>
 
-          </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </swiper>
-
-          </div> -->
-
-
-          <owl-carousel-o [options]="customOptions">
+          <owl-carousel-o  [options]="customOptions">
 
               <ng-container *ngFor="let g of groups;let i = index">
                 <ng-template carouselSlide [id]="i">
                     <div class="item text-center">
-                        <div   class="testimony-wrap p-4">
-                          <div class="user-img mb-4" [style.background-image]="'url(' + g.image + ')'| SafeUrl">
+                        <div class="testimony-wrap p-4">
+                          <div  [routerLink]="['/group', g.eventGroupId, g.name]" class="user-img mb-4" [style.background-image]="'url(' + g.image + ')'| SafeUrl">
                             <span class="quote d-flex align-items-center justify-content-center">
                               <i class="icon-users"></i>
                             </span>
                           </div>
                           <div class="text">
-                            <p class="mb-5">{{g.description}}</p>
-                            <p class="name">{{g.name}}</p>
+                            <p class="mb-3">{{g.description}}</p>
+                            <h5  [routerLink]="['/group', g.eventGroupId, g.name]" class="name">{{g.name}}</h5>
                             <span class="position"> Auxiliaries </span>
                           </div>
                         </div>
@@ -304,7 +298,7 @@
  <div data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1200" class="container">
     <div class="row justify-content-center mb-1">
       <div class="col-md-7 text-center heading-section ftco-animate">
-        <span class="subheading">Blog</span>
+        <span class="subheading">Blogs</span>
         <h2>The Living Word</h2>
         <p>God's Word for God's People</p>
       </div>
@@ -317,7 +311,6 @@
           <div class="text p-4 d-block">
             <div class="meta mb-3">
               <div><a href="#">{{blog?.createdAt |  date}}</a></div>
-              <div><a href="#">Admin</a></div>
             </div>
             <h3 class="heading"><a href="#">{{blog.blogTitle}}</a></h3>
           </div>

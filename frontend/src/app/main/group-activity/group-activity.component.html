@@ -64,7 +64,7 @@
 <section class="ftco-section">
 
   <div class="container">
-      <h4>Blogs</h4>
+      <h4>News and Views</h4>
 
     <div data-aos="zoom-in" data-aos-duration="1500" class="row">
       <div *ngFor="let blog of blogs | paginate: { itemsPerPage: 6, currentPage: p }"
@@ -73,10 +73,10 @@
           <a [routerLink]="['/blog-details', blog.blogId]"  class="block-20" [style.background-image]="'url('+ blog.blogImage + ')' | SafeUrl">
           </a>
           <div class="text p-4 d-block">
-            <div class="meta mb-3">
+            <!-- <div class="meta mb-3">
               <div><a href="#">July 12, 2018</a></div>
               <div><a href="#">Admin</a></div>
-            </div>
+            </div> -->
             <h3  class="heading"><a [routerLink]="['/blog-details', blog.blogId]">
               {{blog.blogTitle}}
             </a></h3>

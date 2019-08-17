@@ -9,10 +9,10 @@ const config = {
   },
 
   "production":{
-    "host":"sql12.freemysqlhosting.net",
-     "user":"sql12301366",
-     "password":"HVnZJSM9vk",
-     "database":"sql12301366"
+    "host":"remotemysql.com",
+     "user":"7XvzUaPbK8",
+     "password":"aR29sj0Uti",
+     "database":"7XvzUaPbK8"
 }
 
 

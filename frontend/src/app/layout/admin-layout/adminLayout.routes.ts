@@ -7,6 +7,7 @@ import { AddEventComponent } from 'src/app/admin/add-event/add-event.component';
 import { AddUserComponent } from 'src/app/admin/add-user/add-user.component';
 import { AddMediaComponent } from 'src/app/admin/add-media/add-media.component';
 import { SubscribersComponent } from 'src/app/admin/subscribers/subscribers.component';
+import { AddLocationComponent } from 'src/app/admin/add-location/add-location.component';
 
 export const ADMIN_LAYOUTS_ROUTES: Routes = [
 
@@ -31,6 +32,11 @@ export const ADMIN_LAYOUTS_ROUTES: Routes = [
   {
     path: 'add-group',
     component: AddGroupComponent
+},
+
+{
+  path: 'church-location',
+  component: AddLocationComponent
 },
 
 {

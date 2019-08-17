@@ -43,6 +43,9 @@ router.post("/admin/user", adminController.addNewUser);
 router.get("/admin/user", adminController.getUsers);
 
 
+router.post("/admin/location", adminController.addLocation);
+router.delete("/admin/location", adminController.removeLocation);
+
 router.post("/admin/blogimages",
 multer({ storage: fileStorageWithoutChangnigName }).any(), adminController.blogContent);
 
@@ -76,10 +79,13 @@ router.post("/main/contact", homeController.addContactRequest);
 router.get("/main/blog", homeController.getBlogs);
 router.get("/main/blog-details", homeController.getBlogById);
 router.get("/main/group", homeController.getGroups);
+router.get("/main/location", homeController.getLocations);
 router.get("/main/event", homeController.getEvents);
 router.get("/main/media", homeController.getMedia);
 router.get("/main/event-details", homeController.getEventById);
+
 router.post("/main/news-letter", homeController.addNewsLetter);
+
 
 
 

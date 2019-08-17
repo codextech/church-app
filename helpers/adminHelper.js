@@ -6,6 +6,7 @@ const Group = require("../models/event-group");
 const Event = require("../models/event");
 const Media = require("../models/media");
 const User = require("../models/user");
+const ChurchLocation = require("../models/church-location");
 const genericHelper = require("../helpers/genericHelper");
 
 const bcrypt = require("bcryptjs");
@@ -122,6 +123,28 @@ exports.contactRequestRead = async (id) => {
   }
 }
 
+
+/* Locations */
+
+exports.addLocation = async (model) => {
+
+  try {
+     await ChurchLocation.create(model);
+  } catch (error) {
+     console.log(error);
+  }
+}
+
+exports.deleteLocation  = async (id) => {
+
+  try {
+     await ChurchLocation.destroy({
+       where: {id: id}
+     });
+  } catch (error) {
+     console.log(error);
+  }
+}
 
 /* Media */
 

@@ -26,6 +26,19 @@ requestRead(id) {
   });
 }
 
+/* church location */
+
+
+addLocation(model) {
+  return this.http.post<any>(environment.apiUrl + 'api/admin/location', model);
+}
+
+deleteLocation(id) {
+  return this.http.delete<any>(environment.apiUrl + 'api/admin/location', {
+    params: {id: id}
+  });
+}
+
 /* Events */
 
 addGroup(model) {

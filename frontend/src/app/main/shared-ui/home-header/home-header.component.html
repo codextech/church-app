@@ -22,7 +22,7 @@
            Auxiliaries
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a *ngFor="let g of groups" class="dropdown-item" [routerLink]="['/group', g.eventGroupId]" routerLinkActive="active" >{{g.name}}</a>
+            <a *ngFor="let g of groups" class="dropdown-item" [routerLink]="['/group', g.eventGroupId, g.name]" routerLinkActive="active" >{{g.name}}</a>
           </div>
         </li>
         <li class="nav-item"><a [routerLink]="['/media']" routerLinkActive="active" class="nav-link">Media</a></li>

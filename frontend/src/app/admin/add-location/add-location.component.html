@@ -1,0 +1,116 @@
+<!--
+
+
+<section class="blog">
+
+</section>
+<form #blogForm="ngForm" (ngSubmit)="addBlog()" class="form-inline">
+  <div class="row">
+
+  <div class="form-group col-md-6 mb-3">
+  <label for="Title" class="sr-only">Blog Title</label>
+  <input [(ngModel)]="blogModel.blogTitle" type="text" class="form-control" id="Title" name="Title" placeholder="First Name">
+  </div>
+  <div class="form-group col-md-12 mb-3">
+  <label for="Description">Description</label>
+  <textarea [(ngModel)]="blogModel.blogDescription" type="text"
+   class="form-control" id="Description" name="Description" placeholder="Description">
+  </textarea>
+  </div>
+
+
+<dropzone class="dropzone-container" [config]="config"
+(error)="onUploadError($event)"
+(sending)="onSending($event)"
+[message]="'Click or drag Blog image here to upload'"
+></dropzone>
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</div>
+
+  </form>
+ -->
+
+
+ <div class="padding">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="box">
+        <div class="box-header">
+          <h2>Add Church Locations</h2>
+
+        </div>
+        <div class="box-body">
+
+          <form #groupForm="ngForm" (ngSubmit)="addLocation()">
+            <div class="form-row">
+
+
+
+              <div class="form-group col-md-12">
+                <label>Church Name</label>
+                <input [(ngModel)]="locationModel.name" name="name" type="text"
+                 class="form-control" placeholder="Church Name" />
+              </div>
+
+              <div class="form-group col-md-12">
+                  <label>Church Location</label>
+                  <input [(ngModel)]="locationModel.location" name="location"
+                   type="text" class="form-control" placeholder="Location" />
+                </div>
+
+                <div class="form-group col-md-12">
+                  <label>Location Link</label>
+                  <input [(ngModel)]="locationModel.link" name="link"
+                   type="text" class="form-control" placeholder="paste church location here i.e website or google map location" />
+                </div>
+
+
+            </div>
+
+            <button type="submit" class="btn primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col-md-12 table-responsive">
+      <div class="box">
+        <div class="box-body">
+
+
+          <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Church Name</th>
+                <th scope="col">Location</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let item of locations">
+                <td>{{item.name}}</td>
+                <td>{{item.location}}</td>
+                <td class="fit">
+                    <button (click)="deleteLocation(item.id)"
+                      class="btn btn-outline b-danger text-danger">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                  </td>
+              </tr>
+
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

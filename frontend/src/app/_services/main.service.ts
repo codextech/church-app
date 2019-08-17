@@ -35,6 +35,10 @@ export class MainService {
     return this.http.get<any>(environment.apiUrl + 'api/main/group');
   }
 
+  getLocations() {
+    return this.http.get<any>(environment.apiUrl + 'api/main/location');
+  }
+
   getEvents() {
     return this.http.get<any>(environment.apiUrl + 'api/main/event');
   }
