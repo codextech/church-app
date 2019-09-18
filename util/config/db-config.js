@@ -9,20 +9,22 @@ const config = {
   },
 
   "production":{
-    "host":"remotemysql.com",
-     "user":"7XvzUaPbK8",
-     "password":"aR29sj0Uti",
-     "database":"7XvzUaPbK8"
-}
+    "host":"localhost:3306",
+     "user":"cdame7",
+     "password":"2a4u2#xQ",
+     "database":"admin_churchdb"
+  }
+
 
 
 }
 module.exports = config;
 
 /*
-"production":{
-  "host":"68.66.224.6",
-   "user":"cdamechu_cdamechu",
-   "password":"YN32(9-b4eWiVw",
-   "database":"cdamechu_churchdb"
-} */
+  "production":{
+    "host":"remotemysql.com",
+     "user":"7XvzUaPbK8",
+     "password":"aR29sj0Uti",
+     "database":"7XvzUaPbK8"
+}
+ */
